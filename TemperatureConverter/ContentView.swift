@@ -26,17 +26,37 @@ struct ContentView: View {
                 Spacer()
             }
             
-            Slider(value: $degreeCelsius,
-                   in: -50.0...50.0,
-                   label: {
-                Text("Celsius")
-            },
-                   minimumValueLabel: {
-                Text("-50")
-            },
-                   maximumValueLabel: {
-                Text("50")
-            })
+            ZStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [.blue, .red]),
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+                    .mask(Slider(value: $degreeCelsius,
+                                 in: -50.0...50.0,
+                                 label: {
+                        Text("Celsius")
+                    },
+                                 minimumValueLabel: {
+                        Text("-50")
+                    },
+                                 maximumValueLabel: {
+                        Text("50")
+                    }))
+                
+                Slider(value: $degreeCelsius,
+                       in: -50.0...50.0,
+                       label: {
+                    Text("Celsius")
+                },
+                       minimumValueLabel: {
+                    Text("-50")
+                },
+                       maximumValueLabel: {
+                    Text("50")
+                })
+                    .opacity(0.05)
+            }
             
             Text(String(format: "%.1f", degreeCelsius))
                 .font(.title2.bold())
@@ -50,10 +70,10 @@ struct ContentView: View {
                 
                 Spacer()
             }
- 
+            
             Text(String(format: "%.1f", degreeFahrenheit))
                 .font(.title2.bold())
-    
+            
                 .padding()
             
             if degreeCelsius >= -50.0 && degreeCelsius < -20.0 {
@@ -71,10 +91,10 @@ struct ContentView: View {
             }
             
             Spacer()
-      
+            
         }
-            .padding()
-            .navigationTitle("Temperature Converter")
+        .padding()
+        .navigationTitle("Temperature Converter")
     }
 }
 
