@@ -8,14 +8,46 @@
 import SwiftUI
 
 struct ContentView: View {
+    // Stored Property
+    @State var degreeCelsius = 0.0
+    
+    // Computed Property
+    var degreeFahrenheit: Double {
+        return (degreeCelsius * 9/5) + 32
+    }
+    
     var body: some View {
-        Text("Hello, world!")
+        VStack {
+            Text("Celsius")
+                .font(.title2.bold())
+            
+            Slider(value: $degreeCelsius,
+                   in: -50.0...50.0,
+                   label: {
+                Text("Celsius")
+            },
+                   minimumValueLabel: {
+                Text("-50")
+            },
+                   maximumValueLabel: {
+                Text("50")
+            })
+            
+            Text(String(format: "%.1f", degreeCelsius))
+                .font(.title2.bold())
+            
+            Spacer()
+      
+        }
             .padding()
+            .navigationTitle("Temperature Converter")
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        NavigationView {
+            ContentView()
+        }
     }
 }
