@@ -18,8 +18,13 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Celsius")
-                .font(.title2.bold())
+            // Celsius
+            HStack {
+                Text("Celsius")
+                    .font(.title2.bold())
+                
+                Spacer()
+            }
             
             Slider(value: $degreeCelsius,
                    in: -50.0...50.0,
@@ -36,6 +41,19 @@ struct ContentView: View {
             Text(String(format: "%.1f", degreeCelsius))
                 .font(.title2.bold())
             
+                .padding()
+            
+            // Fahrenheit
+            HStack {
+                Text("Fahrenheit")
+                    .font(.title2.bold())
+                
+                Spacer()
+            }
+ 
+            Text(String(format: "%.1f", degreeFahrenheit))
+                .font(.title2.bold())
+    
             Spacer()
       
         }
