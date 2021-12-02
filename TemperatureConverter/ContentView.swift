@@ -58,7 +58,7 @@ struct ContentView: View {
                     .opacity(0.05)
             }
             
-            Text(String(format: "%.1f", degreeCelsius))
+            Text("\(String(format: "%.1f", degreeCelsius)) ℃")
                 .font(.title2.bold())
             
                 .padding()
@@ -71,7 +71,7 @@ struct ContentView: View {
                 Spacer()
             }
             
-            Text(String(format: "%.1f", degreeFahrenheit))
+            Text("\(String(format: "%.1f", degreeFahrenheit)) ℉")
                 .font(.title2.bold())
             
                 .padding()
