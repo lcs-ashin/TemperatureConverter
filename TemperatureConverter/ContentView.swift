@@ -57,6 +57,7 @@ struct ContentView: View {
                 })
                     .opacity(0.05)
             }
+            .frame(height: 100)
             
             Text("\(String(format: "%.1f", degreeCelsius)) ℃")
                 .font(.title2.bold())
