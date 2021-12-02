@@ -34,6 +34,7 @@ struct ContentView: View {
                 )
                     .mask(Slider(value: $degreeCelsius,
                                  in: -50.0...50.0,
+                                 step: 0.1,
                                  label: {
                         Text("Celsius")
                     },
@@ -46,6 +47,7 @@ struct ContentView: View {
                 
                 Slider(value: $degreeCelsius,
                        in: -50.0...50.0,
+                       step: 0.1,
                        label: {
                     Text("Celsius")
                 },
